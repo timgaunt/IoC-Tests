@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "www", "www\www.csproj", "{DFBE522D-4671-4480-9CE3-BEE2CFC19094}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IoCTests.Common", "IoCTests.Common\IoCTests.Common.csproj", "{59202094-29FF-401F-B1BF-7E5AD63C69CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DFBE522D-4671-4480-9CE3-BEE2CFC19094}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFBE522D-4671-4480-9CE3-BEE2CFC19094}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFBE522D-4671-4480-9CE3-BEE2CFC19094}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFBE522D-4671-4480-9CE3-BEE2CFC19094}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59202094-29FF-401F-B1BF-7E5AD63C69CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59202094-29FF-401F-B1BF-7E5AD63C69CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59202094-29FF-401F-B1BF-7E5AD63C69CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59202094-29FF-401F-B1BF-7E5AD63C69CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

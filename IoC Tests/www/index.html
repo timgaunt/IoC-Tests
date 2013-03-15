@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <p id="status" style="text-align: center;"><img src="/img/loader.gif" alt="Loading" width="10" height="10" /><br />
+        Tests remaining <span id="test-count-remaining">0</span> of <span id="test-count-total">0</span>, please wait</p>
+    <p id="status-done" style="text-align: center;">All done. Results shown below.</p>
+    <div id="results"></div>
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/scripts/libs/servicestack.js"></script>
+    <script src="/scripts/ioctests.js"></script>
+    <script>
+        var functionsToTest = 0;
+
+        $(function () {
+            updateCounts();
+        });
+
+        function reset() {
+            functionsToTest = 1;
+            updateCounts();
+            $('#results').empty();
+        }
+
+        function getAttractionSecrets() {
+            incrementCounter();
+            $.IoCTests.getSomeObjects(
+                { }
+                , function (data, status, xhr) {
+                    outputSuccess("getSomeObjects", data, status, xhr);
+                }
+                , function (xhr, status, error) {
+                    outputError("getSomeObjects", xhr, status, error);
+                });
+        }
+        function outputSuccess(call, data, status, xhr) {
+            console.log(call + " - Success");
+            console.log(data);
+            console.log(xhr);
+            console.log(status);
+            decrementCounter();
+            addResponse(call, "tick-circle-frame");
+        }
+        function outputError(call, xhr, status, error) {
+            console.log(call + " - Failure");
+            console.log(xhr);
+            console.log(status);
+            console.log(error);
+            decrementCounter();
+            addResponse(call, "exclamation-diamond");
+        }
+        function incrementCounter() {
+            functionsToTest++;
+            updateCounts();
+        }
+        function decrementCounter() {
+            functionsToTest--;
+            updateCounts();
+            if (functionsToTest <= 1) {
+                $('#status').hide();
+                $('#status-done').show();
+            }
+        }
+        function updateCounts() {
+            $('#test-count-remaining').text(functionsToTest);
+            $('#test-count-total').text(functionsToTest);
+            $('#status').show();
+            $('#status-done').hide();
+        }
+        function addResponse(call, icon) {
+            var src = "/img/" + icon + ".png";
+
+            var p = $('<p />', {
+                text: call
+            }).prependTo($('#results'));
+
+            $('<img />', {
+                src: src
+            }).prependTo(p);
+        }
+    </script>
+</body>
+</html>
