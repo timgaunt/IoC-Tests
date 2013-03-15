@@ -1,4 +1,6 @@
-﻿namespace www.App_Start
+﻿using www.Services;
+
+namespace www.App_Start
 {
     using System.Web.Mvc;
 
@@ -11,12 +13,11 @@
     using ServiceStack.Mvc;
     using ServiceStack.ServiceInterface;
     using ServiceStack.WebHost.Endpoints;
-
-
+    
     public class AppHost : AppHostBase
     {
         public AppHost()
-            : base("IoCTests", typeof(AppStartUp).Assembly)
+            : base("IoCTests", typeof(SomeObjectServices).Assembly)
         {
         }
 
